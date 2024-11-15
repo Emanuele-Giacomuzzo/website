@@ -2249,18 +2249,23 @@ input, select, textarea {
 			#main > section.one {
 				background-color: #81918E;
 				background-image: url("../../images/banner.jpg");
+				height: 100vh; /* Increase this to make the banner taller */
+				width: 100%; /* Optional: Ensure it spans the full width */
 			}
 
 			#main > section.two {
 				background-color: #f5fafa;
+				height: 100vh; /* Increase this to make the banner taller */
 			}
 
 			#main > section.three {
 				background-color: #ecf1f1;
+				height: 100vh; /* Increase this to make the banner taller */
 			}
 
 			#main > section.four {
 				background-color: #e8edec;
+				height: 100vh; /* Increase this to make the banner taller */
 			}
 
 /* Wide */
