@@ -213,47 +213,22 @@ input, select, textarea {
 /* Container */
 
 .container {
-		margin: 0 auto;
-		max-width: 100%;
-		width: 1400px;
-	}
+    margin: 0 auto;
+    width: 100%; /* Default to full width for small screens */
+    max-width: 1400px; /* Restrict maximum width */
+}
 
-		@media screen and (min-width: 961px) and (max-width: 1880px) {
+@media screen and (min-width: 961px) and (max-width: 1880px) {
+    .container {
+        max-width: 1200px; /* Adjust for medium-to-large screens */
+    }
+}
 
-			.container {
-				width: 1200px;
-			}
-
-		}
-
-		@media screen and (min-width: 961px) and (max-width: 1620px) {
-
-			.container {
-				width: 960px;
-			}
-
-		}
-
-		@media screen and (min-width: 961px) and (max-width: 1320px) {
-
-			.container {
-				width: 100%;
-			}
-
-		}
-
-		@media screen and (max-width: 960px) {
-
-			.container {
-				width: 100%;
-			}
-			}
-
-			@media screen and (max-width: 736px) {
-				.container {
-					width: 100%;
-				}
-			}
+@media screen and (max-width: 960px) {
+    .container {
+        max-width: 100%; /* Ensure full width on smaller screens */
+    }
+}
 
 /* Row */
 
