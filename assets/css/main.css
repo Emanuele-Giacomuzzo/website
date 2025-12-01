@@ -2630,4 +2630,13 @@ input, select, textarea {
 					margin-top: 0;
 				}
 
+
+
 	}
+
+	/* Disable the fade/clip initially applied to sections */
+section.inactive {
+    opacity: 1 !important;
+    transform: none !important;
+    pointer-events: auto !important;
+}

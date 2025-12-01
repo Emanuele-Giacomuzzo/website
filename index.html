@@ -1,240 +1,276 @@
 <!DOCTYPE HTML>
-
 <html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Personal website of Emanuele Giacomuzzo showcasing projects, blogs, and more.">
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="/path/to/folder/css/academicons.min.css"/>
+    <style>
+        /* FIX: Allow all sections to grow naturally */
+        section.three, section.two {
+            height: auto !important;
+            min-height: auto !important;
+            overflow: visible !important;
+        }
 
-	<head>
-		<meta charset="utf-8" />
-		<meta name="description" content="Personal website of Emanuele Giacomuzzo showcasing projects, blogs, and more.">
-		<link rel="stylesheet" href="assets/css/main.css" />
-		<link rel="stylesheet" href="/path/to/folder/css/academicons.min.css"/>
-	</head>
+        /* FIX: Prevent sections from being hidden by inactive class */
+        section.inactive {
+            opacity: 1 !important;
+            transform: none !important;
+            pointer-events: auto !important;
+        }
 
-	<body class="is-preload">
+        /* Optional: add spacing between sections */
+        section {
+            padding: 4em 0;
+        }
+    </style>
+</head>
+<body class="is-preload">
 
-		<!-- Header -->
-			<div id="header">
+    <!-- Header -->
+    <div id="header">
+        <div class="top">
+            <!-- Logo -->
+            <div id="logo">
+                <span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
+                <h1 id="title">Emanuele<br>Giacomuzzo</h1>
+                <p>Spatial Ecologist<br>Meta-Ecosystem Lover</p>
+                <p>🇮🇹 → 🏴 → 🇨🇭 → 🇩🇰<br></p>
+            </div>
 
-				<div class="top">
+            <!-- Navigation -->
+            <nav id="nav">
+                <ul>
+                    <li><a href="#section_about_me" class="scrolly"><span class="icon solid fa-user">About Me</span></a></li>
+                    <li><a href="#research" class="scrolly"><span class="icon solid fa-microscope">Research</span></a></li>
+                    <li><a href="#News" class="scrolly"><span class="icon solid fa-newspaper">News</span></a></li>
+                    <li><a href="resources/R_Markdown_Example.html"><span class="icon solid fa-file-alt">R Markdown Example</span></a></li>
+                    <li><a href="resources/CV.pdf"><span class="icon solid fa-file-alt">CV</span></a></li>
+                </ul>
+            </nav>
+        </div>
 
-					<!-- Logo -->
-						<div id="logo">
-							<span class="image avatar48"><img src="images/avatar.jpg" alt="" /></span>
-							<h1 id="title">Emanuele<br>Giacomuzzo</h1>
-							<p>Spatial Ecologist<br>Meta-Ecosystem Lover</p>
-						</div>
+        <div class="bottom">
+            <!-- Social Icons -->
+            <ul class="icons">
+                <li><a href="https://scholar.google.com/citations?user=ZbtDkrgAAAAJ&hl=en"><img src="images/icon-google-scholar.png" alt="Google Scholar" style="width: 25px; height: 25px;"/></a></li>
+                <li><a href="https://www.researchgate.net/profile/Emanuele-Giacomuzzo"><img src="images/researchgate-icon.png" alt="ResearchGate" style="width: 25px; height: 25px;"/></a></li>
+                <li><a href="https://www.linkedin.com/in/emanuele-giacomuzzo?originalSubdomain=ch"><img src="images/icon-linkedin.png" alt="LinkedIn" style="width: 25px; height: 25px;"/></a></li>
+                <li><a href="https://orcid.org/0000-0003-2119-2163"><img src="images/icon-ORCID.png" alt="ORCID" style="width: 25px; height: 25px;"/></a></li>
+                <li><a href="mailto:emanuelegiacomuzzo@gmail.com"><img src="images/icon-email.png" alt="Email me" style="width: 25px; height: 25px;"/></a></li>
+            </ul>
+        </div>
+    </div>
 
-					<!-- Navigation -->
-						<nav id="nav">
-							<ul>
-								<li><a href="#top" id="top-link"><span class="icon solid fa-home">Intro</span></a></li>
-								<li><a href="#section_about_me" id="about-link"><span class="icon solid fa-user">About Me</span></a></li>
-								<li><a href="#research" id="research-link"><span class="icon solid fa-microscope">Research</span></a></li>
-								<li><a href="#News" id="News-link"><span class="icon solid fa-newspaper">News</span></a></li>
-								<li><a href="resources/R_Markdown_Example.html" id="example-link"><span class="icon solid fa-file-alt">R Markdown Example</span></a></li>
-								<li><a href="resources/CV.pdf" id="about-link"><span class="icon solid fa-file-alt">CV</span></a></li>
-							</ul>
-						</nav>
+    <!-- Main -->
+    <div id="main">
 
-				</div>
+			<section id="top" class="one dark cover">
+	<div class="container">
+			<!-- Empty container for banner only -->
+	</div>
+</section>
 
-				<div class="bottom">
 
-					<!-- Social Icons -->
-						<ul class="icons">
-							<li><a href="https://scholar.google.com/citations?user=ZbtDkrgAAAAJ&hl=en"><img src="images/icon-google-scholar.png" alt="Google Scholar" style="width: 25px; height: 25px;"/></a></li>
-							<li><a href="https://www.researchgate.net/profile/Emanuele-Giacomuzzo"><img src="images/researchgate-icon.png" alt="ResearchGate" style="width: 25px; height: 25px;"/></a></li>
-							<li><a href="https://www.linkedin.com/in/emanuele-giacomuzzo?originalSubdomain=ch"><img src="images/icon-linkedin.png" alt="LinkedIn" style="width: 25px; height: 25px;"/></a></li>
-							<li><a href="https://orcid.org/0000-0003-2119-2163"><img src="images/icon-ORCID.png" alt="ResearchGate" style="width: 25px; height: 25px;"/></a></li>
-							<li><a href="mailto:emanuelegiacomuzzo@gmail.com"><img src="images/icon-email.png" alt="Email me" style="width: 25px; height: 25px;"/></a></li>
-						</ul>
+        <!-- SECTION: About me -->
+        <section id="section_about_me" class="three">
+            <div class="container">
+                <header>
+                    <h2>About me</h2>
+                </header>
+                <p>
+                    Hi! I'm Ema, and I study how global change affects the connectivity among ecosystems, with cascading effects on ecosystem function and biodiversity. I'm currently a postdoc at the University of Copenhagen in the Freshwater Biology Section working with
+                    <a href="https://jana.isantanavarro.com/">Jana Isanta-Navarro</a> and
+                    <a href="https://researchprofiles.ku.dk/en/persons/kirsten-seestern-christoffersen/">Kirsten Seestern Christoffersen</a>. I recently (October 2025) graduated my PhD with
+                    <a href="https://www.altermattlab.ch/">Florian Altermatt</a> at the Swiss Federal Institute of Aquatic Science and Technology (Eawag) and University of Zurich in Switzerland.
 
-				</div>
+                    <br><br>
+                    Ecosystems are connected to each other. One of the ways by which ecosystems can be connected is via the flow of resources among them. For example, leaves fall from forest trees into streams, bears transport fish from rivers deep into forests where they leave fish scraps, and wind carries nutrients across the Atlantic to link the Sahara Desert with the Amazon rainforest.
 
-			</div>
+                    However, despite the growing recognition of the ubiquity and importance of these connections, we still do not understand how global changes affect biodiversity and ecosystem function via changes in these connections.
 
-		<!-- Main -->
-			<div id="main">
+                    Therefore, my research studies what the impacts of different dimensions of global change are affecting ecological ecosystems via the mediating role of connectivity via resource flows. During my PhD I studied how changes in ecosystem size can affect the effects of resource flows, while during my Postdoc I study how the rise in cyanobacterial blooms can affect the export of nutrients from aquatic systems via emerging insects.
+                </p>
+            </div>
+        </section>
 
-				<!-- SECTION: Intro -->
-					<section id="top" class="one dark cover">
-						<div class="container">
-
-							<header>
-								<h2 class="alt">
-									<p style="color:white; font-weight:bold;">
-										<font size="100">
-										</font>
-									</p>
-								</h2>
-
-							</header>
-
-						</div>
-					</section>
-
-					<!-- SECTION: About me -->
-					<section id="section_about_me" class="three">
-						<div class="container">
-
-							<header>
-								<h2>About me</h2>
-							</header>
-
-							 <p>
-
-								 Hi! I'm Ema, and I study how connections between ecosystems shape their diversity and function.
-
-								 <br>
-								 <br>
-
-								 I am a PhD student in the lab of
-								 <a href="https://www.altermattlab.ch/">Florian Altermatt</a>
-								 at the Swiss Federal Institute of Aquatic Science and Technology
-								 (Eawag) and University of Zurich in Switzerland.
-								 There I study how flows of non-living resources connect ecosystems.
-								 Ecosystems are intrinsically linked by such flows; for example,
-								 leaves falling from forest trees into streams, bears
-								 transporting fish remains deep into forests, or wind carrying
-								 nutrients across the Atlantic to link the Sahara Desert with the
-								 Amazon rainforest. Despite the ubiquity of these connections,
-								 how the size of ecosystems influences these resource flows
-								 remains poorly understood.
-
-								 Take, for instance, leaves falling from forests into streams. Does the size
-								 of the forest determine the type of leaves that fall? And do streams of
-								 different sizes respond differently to these inputs? Answering such
-								 questions in natural environments is challenging due to the many confounding
-								 variables.
-
-								 To address this, my PhD focuses on disentangling these complexities through
-								 controlled laboratory experiments. I use model protist communities to
-								 simulate ecosystems that exchange non-living resources, enabling me to
-								 investigate how ecosystem size influences resource flows and their effects
-								 in a simplified yet meaningful way (proof-of-concept).
-							</p>
-
-						</div>
-					</section>
-
-					<!-- SECTION: Research -->
-					<!-- SECTION: Research -->
+				<!-- SECTION: Research -->
 <section id="research" class="two">
     <div class="container">
         <header>
             <h2>Research</h2>
         </header>
-        <p></p>
-
         <div class="row">
 
+            <!-- Paper 1 -->
             <div class="col-4 col-12-mobile">
                 <article class="item">
-                    <a href="https://essopenarchive.org/doi/full/10.22541/au.172114870.00153906/v1" class="image fit">
-                        <img src="images/PatchSize_design.png" alt="" />
+                    <a href="https://faye.authorea.com/doi/full/10.22541/au.174838308.83955900/v1" class="image fit">
+                        <img src="https://faye.authorea.com/users/639484/articles/1299811/master/file/figures/image1/image1.png" alt="Connectivity via resource flows" />
                     </a>
                     <header>
                         <h3>
-													<a href="https://essopenarchive.org/doi/full/10.22541/au.172114870.00153906/v1">
-													Giacomuzzo, E., Peller, T., Gounand, I., & Altermatt, F. (2024).
-													Ecosystem size mediates the effects of resource flows
-													on species diversity and ecosystem function at
-													different scales. Ecology and Evolution, 14(12), e70709.
-													</a>
-												</h3>
+                            <a href="https://faye.authorea.com/doi/full/10.22541/au.174838308.83955900/v1">
+                                Giacomuzzo, E., Peller, T., Gounand, I., Kaeser, S., & Altermatt, F. (2025).
+                                <i>Connectivity via resource flows interacts with ecosystem size and disturbance to affect meta-ecosystem function.</i>
+                                Authorea Preprint.
+                            </a>
+                        </h3>
                     </header>
                 </article>
             </div>
 
+            <!-- Paper 2 -->
             <div class="col-4 col-12-mobile">
                 <article class="item">
-                    <a href="https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1111/oik.08541" class="image fit">
-                        <img src="images/pic02.jpg" alt="" />
+                    <a href="https://www.authorea.com/doi/full/10.22541/au.173954004.41167391" class="image fit">
+                        <img src="https://www.authorea.com/users/639484/articles/1269051/master/file/figures/04_figure_1/04_figure_1.png" alt="Ecosystem size reverses the effect" />
                     </a>
                     <header>
-											<h3>
-												<a href="https://essopenarchive.org/doi/full/10.22541/au.172114870.00153906/v1">
-													Giacomuzzo, E., & Jordán, F. (2021). Food web
-													aggregation: effects on key positions. Oikos, 130(12),
-													2170-2181.
-													</a>
-												</h3>
+                        <h3>
+                            <a href="https://www.authorea.com/doi/full/10.22541/au.173954004.41167391">
+                                Giacomuzzo, E., Peller, T., Gounand, I., & Altermatt, F. (2025).
+                                <i>Ecosystem size reverses the effect of the spatial coupling between autotrophic and heterotrophic ecosystems.</i>
+                                Authorea Preprints.
+                            </a>
+                        </h3>
                     </header>
                 </article>
             </div>
+
+            <!-- Paper 3 -->
+            <div class="col-4 col-12-mobile">
+                <article class="item">
+                    <a href="https://essopenarchive.org/doi/full/10.22541/au.172114870.00153906/v1" class="image fit">
+                        <img src="images/PatchSize_design.png" alt="Ecosystem size mediates resource flows" />
+                    </a>
+                    <header>
+                        <h3>
+                            <a href="https://essopenarchive.org/doi/full/10.22541/au.172114870.00153906/v1">
+                                Giacomuzzo, E., Peller, T., Gounand, I., & Altermatt, F. (2024).
+                                <i>Ecosystem size mediates the effects of resource flows on species diversity and ecosystem function at different scales.</i>
+                                Ecology and Evolution, 14(12), e70709.
+                            </a>
+                        </h3>
+                    </header>
+                </article>
+            </div>
+
+            <!-- Paper 4 -->
+            <div class="col-4 col-12-mobile">
+                <article class="item">
+                    <a href="https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1111/oik.08541" class="image fit">
+                        <img src="images/pic02.jpg" alt="Food web aggregation" />
+                    </a>
+                    <header>
+                        <h3>
+                            <a href="https://nsojournals.onlinelibrary.wiley.com/doi/full/10.1111/oik.08541">
+                                Giacomuzzo, E., & Jordán, F. (2021).
+                                <i>Food web aggregation: effects on key positions.</i>
+                                Oikos, 130(12), 2170-2181.
+                            </a>
+                        </h3>
+                    </header>
+                </article>
+            </div>
+
+            <!-- Paper 5 -->
+            <div class="col-4 col-12-mobile">
+                <article class="item">
+                    <a href="https://www.biorxiv.org/content/10.1101/2025.03.25.645357v1.abstract" class="image fit">
+                        <img src="images/peller2025.png" alt="Food-web coupling by mobile consumers" />
+                    </a>
+                    <header>
+                        <h3>
+                            <a href="https://www.biorxiv.org/content/10.1101/2025.03.25.645357v1.abstract">
+                                Peller, T., Chaouat, L., Broadbent, H., Giacomuzzo, E., Kaeser, S., Mueller, G., & Altermatt, F. (2025).
+                                <i>Food-web coupling by mobile consumers has individual to ecosystem level effects.</i>
+                                bioRxiv, 2025-03.
+                            </a>
+                        </h3>
+                    </header>
+                </article>
+            </div>
+
         </div>
     </div>
 </section>
 
 
-				<!-- SECTION: News -->
-				<section id="News" class="three">
-					<div class="container">
+<!-- SECTION: News -->
+<section id="News" class="three">
+<div class="container">
+		<header>
+				<h2>News</h2>
+		</header>
 
-						<header>
-							<h2>News</h2>
-						</header>
+		<!-- News Item 1 -->
+		<article class="news-item">
+				<img src="images/PatchSize_design.png" width="400" height="300" />
+				<header>
+						<h3>
+								The first chapter of my PhD on how ecosystem size mediates the effects of resource flows on species diversity and biodiversity is now published in Ecology and Evolution! Access it
+								<a href="https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.70709">here</a>.
+						</h3>
+						<p><em>Published: January 2025</em></p>
+				</header>
+		</article>
 
-						<article class="news-item">
-							<img src="images/PatchSize_design.png" alt="Description of the image"
-							width="400" height="300"/>
-							<header>
-								<h3>The first chapter of my PhD on how
-									ecosystem size mediates the effects of resource flows on species
-									diversity and biodiversity is now published in Ecology and
-									Evolution! You can access it at the following
-									<a href="https://onlinelibrary.wiley.com/doi/full/10.1002/ece3.70709">
-										link
-									</a>.
-								</h3>
-	                <p><em>Published: Janurary 2025</em></p>
-								</article>
+		<!-- News Item 2 -->
+		<article class="news-item">
+				<img src="images/News_2024_11_BES.jpg" width="400" height="300" />
+				<header>
+						<h3>
+								I’ll be attending the <b>BES Annual Meeting 2024</b> in Liverpool (UK) with the poster
+								<i>"Ecosystem size tunes the effects of the spatial feedback between autotrophic and heterotrophic ecosystems on ecosystem function".</i>
+								Last year’s BES was amazing, and I can’t wait to reconnect with this brilliant community.
+						</h3>
+						<p><em>Published: November 2024</em></p>
+				</header>
+		</article>
 
-								<article class="news-item">
-							<img src="images/News_2024_11_BES.jpg" alt="Description of the image"
-							width="400" height="300"/>
-							<header>
-								<h3>
-									I’ll be attending the <b>BES Annual Meeting 2024</b>
-									in Liverpool (UK) with the poster
-									<i>"Ecosystem size tunes the effects of the spatial feedback
-										between autotrophic and heterotrophic ecosystems on ecosystem
-										function".</i> Last year’s BES was an amazing experience.
-		            The super lovely people I met and their inspiring research
-								motivated me to keep pursuing my science,
-		            and I can’t wait to reconnect with this brilliant community.
-								 Looking forward to another incredible event!
-							</h3>
-							<p><em>Published: November 2024</em></p>
-						</header>
-					</article>
+		<!-- News Item 3 -->
+		<article class="news-item">
+				<img src="images/PatchSize_design.png" width="400" height="300" />
+				<header>
+						<h3>
+								New preprint out! The first chapter of my PhD on how ecosystem size mediates the effects of resource flows on species diversity and biodiversity is now available on Authorea. Access it
+								<a href="https://essopenarchive.org/users/639484/articles/1241587-ecosystem-size-mediates-the-effects-of-resource-flows-on-species-diversity-and-ecosystem-function-at-different-scales">here</a>.
+						</h3>
+						<p><em>Published: July 2024</em></p>
+				</header>
+		</article>
 
-					<article class="news-item">
-						<img src="images/PatchSize_design.png" alt="Description of the image"
-						width="400" height="300"/>
-						<header>
-							<h3>New preprint out! The first chapter of my PhD on how
-								ecosystem size mediates the effects of resource flows on species
-								diversity and biodiversity is now available on Authorea. You can
-								access it at the following
-								<a href="https://essopenarchive.org/users/639484/articles/1241587-ecosystem-size-mediates-the-effects-of-resource-flows-on-species-diversity-and-ecosystem-function-at-different-scales">
-									link
-								</a>.
-							</h3>
-                <p><em>Published: July 2024</em></p>
-							</article>
+</div>
+</section>
 
-						</div>
-					</section>
+    </div>
 
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
 
-		<!-- Scripts -->
-			<script src="assets/js/jquery.min.js"></script>
-			<script src="assets/js/jquery.scrolly.min.js"></script>
-			<script src="assets/js/jquery.scrollex.min.js"></script>
-			<script src="assets/js/browser.min.js"></script>
-			<script src="assets/js/breakpoints.min.js"></script>
-			<script src="assets/js/util.js"></script>
-			<script src="assets/js/main.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Smooth scrolling for all internal links
+            $('a.scrolly').scrolly({
+                speed: 800,
+                offset: 0
+            });
 
-	</body>
+            // Ensure sections fade in
+            $('#main > section').scrollex({
+                mode: 'middle',
+                enter: function () {
+                    $(this).removeClass('inactive');
+                }
+            });
+        });
+    </script>
+
+</body>
 </html>
