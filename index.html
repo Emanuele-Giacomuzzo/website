@@ -12,32 +12,67 @@
     a { color: #007acc; text-decoration: none; }
     a:hover { text-decoration: underline; }
 
-    header { background: #222; color: white; padding: 2rem 1rem; text-align: center; }
-    header img { border-radius: 50%; width: 100px; height: 100px; object-fit: cover; }
-    header h1 { margin: 1rem 0 0.5rem; font-size: 2rem; }
-    header p { margin: 0.3rem 0; }
+    header {
+        background: linear-gradient(120deg, #222, #2b3a55, #222);
+        background-size: 200% 200%;
+        animation: gradientShift 12s ease infinite;
+        color: white; padding: 2rem 1rem; text-align: center;
+    }
+    @keyframes gradientShift {
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
+    }
+    header img { border-radius: 50%; width: 100px; height: 100px; object-fit: cover; transition: transform 0.3s ease; animation: float 4s ease-in-out infinite; }
+    @keyframes float {
+        0%, 100% { transform: translateY(0); }
+        50% { transform: translateY(-8px); }
+    }
+    header img:hover { transform: scale(1.06); animation-play-state: paused; }
+    header h1 { margin: 1rem 0 0.5rem; font-size: 2rem; opacity: 0; animation: fadeInUp 0.8s ease 0.2s forwards; }
+    header p { margin: 0.3rem 0; opacity: 0; animation: fadeInUp 0.8s ease forwards; }
+    header p:nth-of-type(1) { animation-delay: 0.4s; }
+    header p:nth-of-type(2) { animation-delay: 0.6s; }
+    @keyframes fadeInUp {
+        from { opacity: 0; transform: translateY(12px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
 
-    nav { background: #333; }
+    nav { background: #333; position: sticky; top: 0; z-index: 10; transition: box-shadow 0.3s ease; }
+    nav.scrolled { box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
     nav ul { display: flex; flex-wrap: wrap; justify-content: center; list-style: none; }
     nav li { margin: 0.5rem 1rem; }
-    nav a { color: white; font-weight: bold; }
-    nav a:hover { text-decoration: underline; }
+    nav a { color: white; font-weight: bold; position: relative; padding-bottom: 2px; text-decoration: none; }
+    nav a::after { content: ""; position: absolute; left: 0; bottom: -2px; width: 0; height: 2px; background: #007acc; transition: width 0.25s ease; }
+    nav a:hover::after, nav a.active::after { width: 100%; }
+    nav a:hover { text-decoration: none; }
 
     main { padding: 2rem 1rem; max-width: 1200px; margin: 0 auto; }
 
-    section { margin-bottom: 4rem; }
+    section { margin-bottom: 4rem; opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    section.visible { opacity: 1; transform: translateY(0); }
     section h2 { font-size: 2rem; margin-bottom: 1rem; text-align: center; }
 
     p { margin-bottom: 1rem; }
 
     /* Research & News Grid */
     .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
-    .item img, .news-item img { width: 100%; height: auto; border-radius: 8px; }
+    .item, .news-item {
+        transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.5s ease;
+        border-radius: 8px; padding: 0.5rem;
+        opacity: 0; transform: translateY(25px) scale(0.97);
+    }
+    .item.visible, .news-item.visible { opacity: 1; transform: translateY(0) scale(1); transition: transform 0.5s ease, box-shadow 0.25s ease, opacity 0.5s ease; }
+    .item:hover, .news-item:hover { transform: translateY(-6px) scale(1); box-shadow: 0 10px 20px rgba(0,0,0,0.12); }
+    .item img, .news-item img { width: 100%; height: auto; border-radius: 8px; display: block; overflow: hidden; transition: transform 0.4s ease; }
+    .item a, .news-item { overflow: hidden; border-radius: 8px; display: block; }
+    .item a img:hover, .news-item:hover img { transform: scale(1.04); }
     .item h3, .news-item h3 { font-size: 1rem; margin-top: 0.5rem; }
 
     /* Social icons */
-    .social-icons { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; }
-    .social-icons img { width: 25px; height: 25px; }
+    .social-icons { display: flex; justify-content: center; gap: 1rem; margin-top: 1rem; opacity: 0; animation: fadeInUp 0.8s ease 0.8s forwards; }
+    .social-icons img { width: 25px; height: 25px; transition: transform 0.2s ease; }
+    .social-icons a:hover img { transform: scale(1.15); }
 
     /* Mobile-friendly adjustments */
     @media (max-width: 600px) {
@@ -151,6 +186,47 @@
 </section>
 
 </main>
+
+<script>
+    // Fade sections in AND out as they enter/leave the viewport
+    const sections = document.querySelectorAll('main section');
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle('visible', entry.isIntersecting);
+        });
+    }, { threshold: 0.15 });
+    sections.forEach(section => sectionObserver.observe(section));
+
+    // Stagger fade in/out for each card within the grids
+    const cards = document.querySelectorAll('.item, .news-item');
+    cards.forEach((card, i) => {
+        card.style.transitionDelay = `${(i % 5) * 0.1}s`;
+    });
+    const cardObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => entry.target.classList.toggle('visible', entry.isIntersecting));
+    }, { threshold: 0.15 });
+    cards.forEach(card => cardObserver.observe(card));
+
+    // Shadow on nav once page is scrolled
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        nav.classList.toggle('scrolled', window.scrollY > 10);
+    });
+
+    // Highlight active nav link based on visible section
+    const navLinks = document.querySelectorAll('nav a');
+    const linkObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            const link = document.querySelector(`nav a[href="#${entry.target.id}"]`);
+            if (!link) return;
+            if (entry.isIntersecting) {
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+            }
+        });
+    }, { threshold: 0.5 });
+    sections.forEach(section => linkObserver.observe(section));
+</script>
 
 </body>
 </html>
